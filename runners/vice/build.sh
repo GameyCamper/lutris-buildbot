@@ -39,7 +39,7 @@ GetSources() {
 BuildProject() {
     cd ${source_dir}/vice
     ./autogen.sh
-    ./configure --enable-sdlui2 --prefix=${bin_dir}
+    ./configure --enable-sdl2ui --prefix=${bin_dir}
     make
     make install
 }
