@@ -53,24 +53,31 @@ apt-get install -y gcc gcc-mingw-w64-x86-64 gcc-mingw-w64-i686 gcc-multilib \
                 unixodbc-dev:amd64 unixodbc-dev:i386 \
                 gudev-1.0:amd64 gudev-1.0:i386 \
                 libgcrypt-dev libgpg-error-dev \
-                x11proto-dev
+                x11proto-dev \
+                libcurl4-openssl-dev
 # More wine dependencies
 apt-get install -y ccache netbase curl ca-certificates xserver-xorg-video-dummy xserver-xorg xfonts-base xinit fvwm \
                     winbind fonts-liberation2 fonts-noto-core fonts-noto-cjk pulseaudio libdrm-dev:amd64 libdrm-dev:i386
 # Gstreamer codecs
-curl -O https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb
-dpkg -i deb-multimedia-keyring_2016.8.1_all.deb
-echo 'deb https://www.deb-multimedia.org bullseye main' >> /etc/apt/sources.list
-rm deb-multimedia-keyring_2016.8.1_all.deb
-apt-get update
-apt-get install -y libgstreamer-plugins-base1.0-dev:amd64 libgstreamer-plugins-base1.0-dev:i386 \
-                    libasound2-plugins:amd64 libasound2-plugins:i386 \
-                    libmjpegutils-2.1-0:amd64 libmjpegutils-2.1-0:i386 \
-                    gstreamer1.0-libav:amd64 gstreamer1.0-libav:i386 \
-                    gstreamer1.0-plugins-base:amd64 gstreamer1.0-plugins-good:amd64 gstreamer1.0-plugins-bad:amd64 gstreamer1.0-plugins-ugly:amd64 \
-                    gstreamer1.0-plugins-base:i386 gstreamer1.0-plugins-good:i386 gstreamer1.0-plugins-bad:i386 gstreamer1.0-plugins-ugly:i386 && \
+#curl -O https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2024.9.1_all.deb
+
+#d#pkg -i deb-multimedia-keyring_2016.8.1_all.deb
+#echo 'deb https://www.deb-multimedia.org bullseye main' >> /etc/apt/sources.list
+#rm deb-multimedia-keyring_2016.8.1_all.deb
+#apt-get update
+#apt-get install -y libgstreamer-plugins-base1.0-dev:amd64 libgstreamer-plugins-base1.0-dev:i386 \
+#                    libasound2-plugins:amd64 libasound2-plugins:i386 \
+#                    libmjpegutils-2.1-0:amd64 libmjpegutils-2.1-0:i386 \
+#                    gstreamer1.0-libav:amd64 gstreamer1.0-libav:i386 \
+#                    gstreamer1.0-plugins-base:amd64 gstreamer1.0-plugins-good:amd64 gstreamer1.0-plugins-bad:amd64 gstreamer1.0-plugins-ugly:amd64 \
+#                    gstreamer1.0-plugins-base:i386 gstreamer1.0-plugins-good:i386 gstreamer1.0-plugins-bad:i386 gstreamer1.0-plugins-ugly:i386 && \
+
+apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base \
+                   gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools \
+                   gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio ffmpeg
+
 # Misc utilities (not sure if fontconfig is required)
-apt-get -y install wget build-essential vim nano fontconfig
+apt-get -y install wget build-essential vim nano fontconfig subversion dos2unix less file
 # Runtime dependencies
 apt-get -y install lsb-release
 apt-get clean
