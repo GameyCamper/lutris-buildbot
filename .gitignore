@@ -11,3 +11,6 @@ tools/gogdl/*.tar.xz
 tools/vkd3d/vkd3d-*/
 tools/vkd3d/*.tar.*
 tools/winetricks/winetricks/
+/runners/vice/OpenCBM/
+/runners/vice/Disk2Easyflash-v1/
+**/*.tar.gz
